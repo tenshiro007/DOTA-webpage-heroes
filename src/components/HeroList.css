@@ -1,0 +1,88 @@
+.herolist .header {
+  height: 100vh;
+  position: relative;
+  background-image: url("https://i.pinimg.com/originals/b5/ad/de/b5adde334737bed0c3f28b38f6f84d13.jpg");
+  background-size: 100%;
+  background-position: center;
+}
+.herolist .header .header-text {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 22%,
+    rgba(131, 145, 154, 0) 100%
+  );
+  z-index: 1000;
+  bottom: 0;
+  height: 40vh;
+  width: 100%;
+}
+.herolist .header h1 {
+  position: absolute;
+  bottom: 6rem;
+  font-size: 5rem;
+  left: 100px;
+  font-weight: 700;
+}
+.herolist .header h1 span{
+    color: rgb(222, 0, 0);
+}
+.herolist .body {
+  min-height: 100vh;
+  padding-bottom: 2rem;
+  /* background: #035397; */
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(131, 145, 154, 1) 100%
+  );
+}
+.herolist .body .filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  /* margin: 0 6rem; */
+  /* border: 0.1rem solid white; */
+}
+
+.herolist .body .filter .button-filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.herolist .body .filter .button-filter h4 {
+  font-size: 1rem;
+  margin-right: 10px;
+}
+.herolist .body .filter .button-filter button {
+  color: white;
+  font-size: 0.9rem;
+  border-radius: 10%;
+  margin-bottom: 5px;
+  /* border-bottom: 1px solid white; */
+  margin-right: 0.5rem;
+  border: white solid 1px;
+}
+.herolist .button-filter input.btn-search{
+  background-color: rgb(198, 198, 198);
+  width: 100%;
+  margin-bottom: 0.5rem;
+  color: black;
+  border-radius: 0.5rem;
+  padding: 0.1rem 0.5rem
+}
+.herolist .button-filter input.btn-search:focus{
+  outline: none;
+}
+
+footer {
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 1);
+  display: flex;
+  justify-content: center;
+}

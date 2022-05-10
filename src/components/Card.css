@@ -1,0 +1,43 @@
+.card-m{
+    transition: transform .4s;
+    z-index: -1000;
+}
+.card-m img{
+    border-radius: 10px
+}
+.card-m h5{
+    display: none;
+    margin-top: 5px;
+    color: transparent;
+    transition: transform .2s;
+}
+.card-m .card-body-m{
+    background-color: transparent;
+}
+
+.card-m:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    z-index: 1000;
+    position: absolute;
+    box-shadow: 0 2px 10px rgba(0, 0,0, 0.3);
+}
+.card-body-m{
+    position: relative;
+    width: 100%;
+}
+.card-m:hover h5{
+    display: block;
+    color: white;
+    transform: scale(1.5);
+}
+.card-m:hover .card-body-m{
+    position: absolute;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 48%, transparent 100%);
+    bottom: 0px;
+    left: 0px;
+    padding: 10px;
+    z-index: 10000;
+    border-radius: 10px
+}
