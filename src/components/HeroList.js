@@ -6,7 +6,6 @@ import { api } from "../services/services";
 import { useState, useEffect } from "react";
 import Card from "./Card";
 import "./HeroList.css";
-import HeroDetails from "./HeroDetails";
 
 const HeroList = () => {
   const [heroes, setHeroes] = useState([]);
@@ -67,13 +66,32 @@ const HeroList = () => {
   };
 
   const setFilter = (value) => {
-    // console.log(value);
-    if (value === "all") setStatus("all");
-    else if (value === "agi") setStatus("agi");
-    else if (value === "str") setStatus("str");
-    else if (value === "int") setStatus("int");
-    else if (value === "melee") setStatus("melee");
-    else if (value === "ranged") setStatus("ranged");
+    var beforeclicked = document.getElementsByClassName("clicked");
+    if (beforeclicked[0]) {
+      if (value === beforeclicked[0].id) {
+        beforeclicked[0].classList.remove("clicked");
+        setStatus("all");
+      } else {
+        beforeclicked[0].classList.remove("clicked");
+        document.getElementById(value).classList.add("clicked");
+        if (value === "all") setStatus("all");
+        else if (value === "agi") setStatus("agi");
+        else if (value === "str") setStatus("str");
+        else if (value === "int") setStatus("int");
+        else if (value === "melee") setStatus("melee");
+        else if (value === "ranged") setStatus("ranged");
+      }
+    } else {
+      if (value === "all") setStatus("all");
+      else if (value === "agi") setStatus("agi");
+      else if (value === "str") setStatus("str");
+      else if (value === "int") setStatus("int");
+      else if (value === "melee") setStatus("melee");
+      else if (value === "ranged") setStatus("ranged");
+      document.getElementById(value).classList.add("clicked");
+    }
+
+    // console.log(clicked);
   };
 
   const checkAndLoadFilter = () => {
@@ -138,22 +156,42 @@ const HeroList = () => {
           <div className="filter">
             <div className="button-filter">
               <h4>ATTRIBUTE</h4>
-              <button className="btn " onClick={() => setFilter("agi")}>
+              <button
+                className="btn "
+                id="agi"
+                onClick={() => setFilter("agi")}
+              >
                 AGI
               </button>
-              <button className="btn " onClick={() => setFilter("str")}>
+              <button
+                className="btn "
+                id="str"
+                onClick={() => setFilter("str")}
+              >
                 STR
               </button>
-              <button className="btn " onClick={() => setFilter("int")}>
+              <button
+                className="btn "
+                id="int"
+                onClick={() => setFilter("int")}
+              >
                 INT
               </button>
             </div>
             <div className="button-filter">
               <h4>ATTACK TYPE</h4>
-              <button className="btn " onClick={() => setFilter("ranged")}>
+              <button
+                className="btn "
+                id="ranged"
+                onClick={() => setFilter("ranged")}
+              >
                 Ranged
               </button>
-              <button className="btn " onClick={() => setFilter("melee")}>
+              <button
+                className="btn "
+                id="melee"
+                onClick={() => setFilter("melee")}
+              >
                 Melee
               </button>
             </div>
@@ -174,7 +212,7 @@ const HeroList = () => {
           {/* {<GroupCard heroes={showHeroes}/>} */}
           <div className="row">
             {showHeroes.map((hero, idx) => (
-              <div className="col-lg-3 col-md-4 col-sm-6 my-2">
+              <div className="col-lg-3 col-md-4 col-6 my-2">
                 {/* {JSON.stringify(hero)} */}
                 <Card key={idx} hero={hero} />
               </div>

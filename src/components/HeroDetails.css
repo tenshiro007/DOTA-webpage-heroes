@@ -6,6 +6,7 @@
     /* min-height: 100vh; */
     /* background-size: 100%; */
      background-position: center;
+     padding-bottom:5rem;
 }
 .herodetails .col-lg-4{
     margin-top: 4rem;
@@ -20,7 +21,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 0.5rem;
     padding: 1rem;
 }
 .herodetails img{
@@ -31,7 +33,8 @@
     flex-direction: column;
     justify-content: left;
     text-transform: uppercase;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 0.5rem;
     padding: 3rem;
 }
 .herodetails .hero-details{
@@ -39,31 +42,88 @@
     flex-direction: column;
     justify-content: left;
     text-transform: uppercase;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 0.5rem;
     padding: 3rem;
+}
+.herodetails .hero-details-r{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 0.5rem;
+    padding: 3rem;
+}
+.herodetails .hero-details-r h3{
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #A1DAEC;
 }
 .herodetails .hero-details h3{
     font-size: 1.4rem;
     font-weight: 500;
-    
+    color: #A1DAEC;
 }
 .line-break {
     white-space: pre-line;
 }
-.herodetails .hero-details2{
+.herodetails .statusHero{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: left;
     text-transform: uppercase;
-    background-color: rgba(0,0,0,0.5);
+    background: rgb(36,38,39);
+    border-radius: 0.5rem;
+    background: linear-gradient(0deg, rgba(36,38,39,0.8) 0%, rgba(16,20,21,0.2) 100%);
     padding: 3rem;
 }
-
-.herodetails .hero-details2 .details{
+.herodetails .statusHero .status{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+}
+.herodetails .statusHero .inside2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+.herodetails .statusHero .inside2 span{
+    color: #B2B2B2;
+}
+#text-attr{
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #A1DAEC;
+}
+#text-status{
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #A1DAEC;
+}
+.herodetails .statusHero .status .inside{
+    display: flex;
+    flex-direction: column;
     justify-content: left;
-    align-items: center;
+    align-items: left;
+}
+.herodetails .statusHero .status .inside span{
+    color: #B2B2B2;
+}
+.herodetails .statusHero .status .inside h4{
+    color:white;
+}
+#button-add{
+    color: rgb(255, 255, 255);
+    /* background-color:rgba(0, 0, 0, 0.3); */
+    border: 0.1rem white solid;
 }
 footer {
     padding: 2rem;
@@ -72,3 +132,56 @@ footer {
     justify-content: center;
   }
   
+  @media only screen and (min-width: 320px ) {
+    html{
+      font-size: 15px;
+    }
+    .herodetails h1{
+        font-size: 4rem;
+        font-weight: 800;
+        text-align: center;
+    }
+    .herodetails .statusHero .inside2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #text-attr{
+        margin-bottom: 2rem;
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: #A1DAEC;
+        text-align: center;
+    }
+  }
+  @media only screen and (min-width: 960px) {
+    /* For tablet: */
+    html{
+      font-size: 20px;
+    }
+    .herodetails h1{
+        font-size: 5rem;
+        font-weight: 800;
+        text-align: center;
+    }
+    .herodetails .statusHero .inside2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #text-attr{
+        margin-bottom: 2rem;
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: #A1DAEC;
+        text-align: center;
+    }
+  }
+  
+  @media only screen and (min-width: 1240px) {
+    html {
+        font-size: 20px;
+    }
+  }

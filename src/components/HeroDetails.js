@@ -2,17 +2,72 @@ import React from "react";
 import Navbar from "./Navbar";
 import "./HeroDetails.css";
 import { useLocation } from "react-router-dom";
+import {getHeroes,addHeroes} from '../services/services'
+import {useState,useEffect}from 'react'
+import Swal from "sweetalert2";
 
-const HeroDetails = (props) => {
+const HeroDetails = () => {
   const hero = useLocation().state;
+  const [favHero,setFavHero]=useState([])
 
-  //   console.log(hero);
-  // {location.state.name}
-  const roles = (roles) => {
-    roles.map((i, idx) => {
-      <li>i</li>;
-    });
-  };
+
+  useEffect(()=>{
+    var oldHero=getHeroes()
+    setFavHero(oldHero)
+  },[])
+
+  const addHeroStorage=()=>{
+    console.log(favHero);
+
+    if(favHero){
+      var addHero=favHero
+      const redundance=addHero.filter(i=>{
+        if(i.name===hero.name){
+          return i
+        }
+        // return []
+      })
+
+      // console.log(redundance);
+      
+      // console.log(redundance)
+      if(redundance.length>0){
+        // console.log('already add');
+        Swal.fire({
+          icon: "error",
+          title: "Can not add this hero",
+          text: "This hero is already add to your favorite hero",
+          // footer: '<a href="">Why do I have this issue?</a>'
+        });
+      }else{
+        addHero.push(hero)
+        setFavHero(addHero)
+        addHeroes(addHero)
+
+        Swal.fire(
+          'Successfully Add',
+          'Add hero to your favorite hero successfully',
+          'success'
+        )
+      }
+    }else{
+      var addHero2=[]
+        addHero2.push(hero)
+        setFavHero(addHero2)
+        addHeroes(addHero2)
+
+        Swal.fire(
+          'Successfully Add',
+          'Add hero to your favorite hero successfully',
+          'success'
+        )
+    }
+  }
+
+  useEffect(()=>{
+    // console.log('from useeffect',favHero);
+  },[favHero,hero])
+
   return (
     <div className="herodetails">
       <div className="header">
@@ -32,125 +87,86 @@ const HeroDetails = (props) => {
 
                 <h3>ATTACK TYPE</h3>
                 <p>{hero.attack_type}</p>
-
               </div>
             </div>
             <div className="col-lg-4 col-sm-12">
-              <div className="hero-details">
-              <h3>ROLES</h3>
+              <div className="hero-details-r">
+                <h3>ROLES</h3>
                 <p className="line-break">{hero.roles.join("\n")}</p>
-                {/* <h3>attack_range</h3>
-                <p>{hero.attack_range}</p>
+              </div>
+            </div>
+          </div>
 
-                <h3>projectile_speed</h3>
-                <p>{hero.projectile_speed}</p>
+          <div className="statusHero">
+            <div className="row">
+              <div className="col-lg-3">
+                <h3 id="text-attr">ATTRIBUTES</h3>
+                <div className="inside2">
+                  <p>
+                    <span>STRENGTH :</span> {hero.base_str} + {hero.str_gain}
+                  </p>
 
-                <h3>attack_rate</h3>
-                <p>{hero.attack_rate}</p>
+                  <p>
+                    <span>INTELLIGENCE :</span> {hero.base_int} +{" "}
+                    {hero.int_gain}
+                  </p>
 
-                <h3>move_speed</h3>
-                <p>{hero.move_speed}</p> */}
+                  <p>
+                    <span>AGILITY :</span> {hero.base_agi} + {hero.agi_gain}
+                  </p>
+                </div>
+              </div>
+              <div className="col-lg-9">
+                <h3 id="text-status">STATUS</h3>
+                <div className="status">
+                  <div className="inside">
+                    <h4>ATTACT</h4>
+                    <p>
+                      <span>ATTACK :</span> {hero.base_attack_min} -{" "}
+                      {hero.base_attack_max}
+                    </p>
+                    <p>
+                      <span>RATE :</span> {hero.attack_rate}{" "}
+                    </p>
+                    <p>
+                      <span>RANGE :</span> {hero.attack_range}{" "}
+                    </p>
+                  </div>
+                  <div className="inside">
+                    <h4>BASE</h4>
+                    <p>
+                      <span>HEALTH :</span> {hero.base_health} +{" "}
+                      {hero.base_health_regen}
+                    </p>
+                    <p>
+                      <span>MANA :</span> {hero.base_mana} +{" "}
+                      {hero.base_mana_regen}
+                    </p>
+                    <p>
+                      <span>ARMOR :</span> {hero.base_armor}
+                    </p>
+                    <p>
+                      <span>MR :</span> {hero.base_mr}
+                    </p>
+                  </div>
+                  <div className="inside">
+                    <h4>MOBILITY</h4>
+                    <p>
+                      <span>SPEED :</span> {hero.move_speed}{" "}
+                    </p>
+                    <p>
+                      <span>PROJECTILE SPEED :</span> {hero.projectile_speed}{" "}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <div className="row">
-            <div className="col-lg-6 col-sm-12">
-              <div className="hero-details2">
-                <div className="details">
-                  <h3>base_health</h3>
-                  <p>{hero.base_health}</p>
-                </div>
-
-                <div className="details">
-                  <h3>base_health_regen</h3>
-                  <p>{hero.base_health_regen}</p>
-                </div>
-
-                <div className="details">
-                  <h3>base_mana</h3>
-                  <p>{hero.base_mana}</p>
-                </div>
-
-                <div className="details">
-                  <h3>base_mana_regen</h3>
-                  <p>{hero.base_mana_regen}</p>
-                </div>
-
-                <div className="details">
-                  <h3>base_armor</h3>
-                  <p>{hero.base_armor}</p>
-                </div>
-
-                <div className="details">
-                  <h3>base_mr</h3>
-                  <p>{hero.base_mr}</p>
-                </div>
-
-                <div className="details">
-                  <h3>base_attack_min</h3>
-                  <p>{hero.base_attack_min}</p>
-                </div>
-
-                <div className="details">
-                  <h3>base_attack_max</h3>
-                  <p>{hero.base_attack_max}</p>
-                </div>
-
-                <div className="details">
-                  <h3>base_str</h3>
-                  <p>{hero.base_str}</p>
-                </div>
-
-                <div className="details">
-                  <h3>base_agi</h3>
-                  <p>{hero.base_agi}</p>
-                </div>
-
-                <div className="details">
-                  <h3>base_int</h3>
-                  <p>{hero.base_int}</p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6 col-sm-12">
-            <div className="hero-details2">  
-            <div className="details">
-                  <h3>str_gain</h3>
-                  <p>{hero.str_gain}</p>
-                </div>
-
-                <div className="details">
-                  <h3>agi_gain</h3>
-                  <p>{hero.agi_gain}</p>
-                </div>
-                <div className="details">
-                  <h3>int_gain</h3>
-                  <p>{hero.int_gain}</p>
-                </div>
-
-                <div className="details">
-                  <h3>attack_range</h3>
-                  <p>{hero.attack_range}</p>
-                </div>
-
-                <div className="details">
-                  <h3>projectile_speed</h3>
-                  <p>{hero.projectile_speed}</p>
-                </div>
-
-                <div className="details">
-                  <h3>attack_rate</h3>
-                  <p>{hero.attack_rate}</p>
-                </div>
-
-                <div className="details">
-                  <h3>move_speed</h3>
-                  <p>{hero.move_speed}</p>
-                </div>
+            <div className="col-lg-12">
+              <button className="btn btn-outline-success btn-lg btn-block"id="button-add" onClick={addHeroStorage}>Add To My Favorite Hero</button>
             </div>
           </div>
-          </div>
-          
         </div>
       </div>
       <footer>@Testing Web Dot A Api</footer>

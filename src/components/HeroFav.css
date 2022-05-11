@@ -1,0 +1,29 @@
+.heroFav {
+    min-height: 100vh;
+    background: rgb(36,38,39);
+    background: linear-gradient(90deg, rgba(36,38,39,1) 0%, rgba(56,120,136,1) 100%);
+}
+.heroFav .header{
+  background-image: url("https://i.pinimg.com/originals/c6/32/b3/c632b3bc2ec8f30871d02bb21d3e29e2.jpg");
+  background-size: 100%;
+  background-position: top;
+  min-height: 50vh;
+  margin-bottom: 2rem;
+}
+.heroFav .header h1 {
+  text-align: center;
+  font-family: "Volkhov", serif;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.heroFav .header h1 span {
+  font-family: "Volkhov", serif;
+  color: red;
+}
+.heroFav .container {
+
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+}

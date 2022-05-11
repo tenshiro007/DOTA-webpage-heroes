@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HeroList from './components/HeroList';
 import HeroDetails from './components/HeroDetails';
 import HeroFav from './components/HeroFav';
-import Hello from './components/Hello';
 
 function App() {
   return (

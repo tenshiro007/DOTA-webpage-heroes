@@ -29,7 +29,7 @@
 .card-m:hover h5{
     display: block;
     color: white;
-    transform: scale(1.5);
+    transform: scale(1.4);
 }
 .card-m:hover .card-body-m{
     position: absolute;
@@ -41,3 +41,24 @@
     z-index: 10000;
     border-radius: 10px
 }
+
+  @media only screen and (min-width: 320px ) {
+    .card-m img{
+        width: 99%;
+        height: 99%;
+    }
+  }
+  @media only screen and (min-width: 960px) {
+    .card-m img{
+        width: 99%;
+        height: 99%;
+    }
+    
+  }
+  
+  @media only screen and (min-width: 1240px) {
+    .card-m img{
+        width: 270px;
+        height: 150px;
+    }
+  }
